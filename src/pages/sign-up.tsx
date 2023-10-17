@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/libs/firebase';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE_PATHS } from '@/config/route-paths.config';
+import { renderGtagScript } from '@/utils/script-renderers';
 
 function SignUp() {
   const navigate = useNavigate();
@@ -20,13 +21,14 @@ function SignUp() {
     password: string;
   }) => {
     await createUserWithEmailAndPassword(auth, email, password);
-    navigate(ROUTE_PATHS.root);
+    navigate(ROUTE_PATHS.home);
   };
 
   return (
     <>
       <Helmet>
         <title>Sign up</title>
+        {renderGtagScript()}
       </Helmet>
 
       <div className="flex flex-col gap-3 w-52">
