@@ -1,5 +1,5 @@
 export const renderGtagScript = () => {
-  const scripts = [];
+  const scripts: JSX.Element[] = [];
 
   scripts.push(
     <script
@@ -13,6 +13,24 @@ export const renderGtagScript = () => {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-11379055501');`}
+    </script>
+  );
+
+  scripts.push(
+    <script>
+      {`gtag('event', 'conversion', {'send_to': 'AW-11379055501/X758COz4x-0YEI23-rEq'});`}
+    </script>
+  );
+
+  return scripts;
+};
+
+export const renderGtagConversionScript = () => {
+  const scripts: JSX.Element[] = [];
+
+  scripts.push(
+    <script>
+      {`gtag('event', 'conversion', {'send_to': 'AW-11379055501/X758COz4x-0YEI23-rEq'});`}
     </script>
   );
 

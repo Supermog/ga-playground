@@ -3,7 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import { auth } from '@/libs/firebase';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE_PATHS } from '@/config/route-paths.config';
-import { renderGtagScript } from '@/utils/script-renderers';
+import {
+  renderGtagConversionScript,
+  renderGtagScript,
+} from '@/utils/script-renderers';
 
 function Home() {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ function Home() {
       <Helmet>
         <title>Home</title>
         {renderGtagScript()}
+        {renderGtagConversionScript()}
       </Helmet>
 
       <div>
