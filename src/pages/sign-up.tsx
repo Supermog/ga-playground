@@ -20,7 +20,7 @@ function SignUp() {
     password: string;
   }) => {
     await createUserWithEmailAndPassword(auth, email, password);
-    navigate(ROUTE_PATHS.root);
+    navigate(ROUTE_PATHS.home);
   };
 
   return (
