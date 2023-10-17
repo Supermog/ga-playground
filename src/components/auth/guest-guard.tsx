@@ -14,7 +14,7 @@ function GuestGuard({ children }: GuestGuardProps) {
   const authUser = auth.currentUser;
 
   if (authUser) {
-    return <Navigate to={ROUTE_PATHS.root} />;
+    return <Navigate to={ROUTE_PATHS.home} />;
   }
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

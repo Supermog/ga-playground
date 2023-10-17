@@ -21,7 +21,7 @@ function SignIn() {
   }) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate(ROUTE_PATHS.root);
+      navigate(ROUTE_PATHS.home);
     } catch (error) {
       console.error(error);
     }
