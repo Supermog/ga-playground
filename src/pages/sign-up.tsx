@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '@/libs/firebase';
-import { ROUTE_PATHS } from '@/config/route-paths.config';
 import { useNavigate } from 'react-router-dom';
+import { ROUTE_PATHS } from '@/config/route-paths.config';
 
-function SignIn() {
+function SignUp() {
   const navigate = useNavigate();
 
   const emailRef = React.useRef<string>('');
@@ -19,21 +19,18 @@ function SignIn() {
     email: string;
     password: string;
   }) => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate(ROUTE_PATHS.root);
-    } catch (error) {
-      console.error(error);
-    }
+    await createUserWithEmailAndPassword(auth, email, password);
+    navigate(ROUTE_PATHS.root);
   };
+
   return (
     <>
       <Helmet>
-        <title>Sign in</title>
+        <title>Sign up</title>
       </Helmet>
 
       <div className="flex flex-col gap-3 w-52">
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
         <p>Email</p>
         <input
           className="border-2 border-black"
@@ -54,11 +51,11 @@ function SignIn() {
             onSubmit({ email: emailRef.current, password: passwordRef.current })
           }
         >
-          Log in
+          Register
         </button>
       </div>
     </>
   );
 }
 
-export { SignIn };
+export { SignUp };

@@ -8,6 +8,7 @@ import { GuestGuard } from '@/components/auth/guest-guard';
 
 import { Home } from '@/pages/index';
 import { SignIn } from '@/pages/sign-in';
+import { SignUp } from './pages/sign-up';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.signIn,
         element: <SignIn />,
+      },
+      {
+        path: ROUTE_PATHS.signUp,
+        element: <SignUp />,
       },
     ],
   },
