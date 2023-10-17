@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/libs/firebase';
 import { ROUTE_PATHS } from '@/config/route-paths.config';
 import { useNavigate } from 'react-router-dom';
+import { renderGtagScript } from '@/utils/script-renderers';
 
 function SignIn() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ function SignIn() {
     <>
       <Helmet>
         <title>Sign in</title>
+        {renderGtagScript()}
       </Helmet>
 
       <div className="flex flex-col gap-3 w-52">

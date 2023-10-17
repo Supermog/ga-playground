@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import { ROUTE_PATHS } from '@/config/route-paths.config';
 
 import { RouteWrapper } from '@/components/utils/route-wrapper';
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
   {
     element: <RouteWrapper guard={AuthGuard} layout={Layout} />,
     children: [
+      {
+        path: ROUTE_PATHS.root,
+        element: <Navigate to={ROUTE_PATHS.home} />,
+      },
       {
         path: ROUTE_PATHS.home,
         element: <Home />,
