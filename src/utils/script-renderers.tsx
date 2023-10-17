@@ -24,7 +24,7 @@ export const renderGtagConversionScript = () => {
 
   scripts.push(
     <script>
-      {`gtag('event', 'conversion', {'send_to': 'AW-11379055501/X758COz4x-0YEI23-rEq'});`}
+      {`gtag('event', 'conversion', {'send_to': 'AW-11379055501/LChuCM7c0O0YEI23-rEq'});`}
     </script>
   );
 
