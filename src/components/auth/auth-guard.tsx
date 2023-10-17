@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 
 // import { useAuth } from '../../hooks/useAuth';
 import type { GuardProps } from '@/components/utils/route-wrapper';
+import { auth } from '@/libs/firebase';
+import { ROUTE_PATHS } from '@/config/route-paths.config';
 
 type AuthGuardProps = {
   children?: React.ReactNode;
@@ -11,11 +13,11 @@ type AuthGuardProps = {
 
 function AuthGuard({ children, guardProps }: AuthGuardProps) {
   // const { authUser, isAdmin } = useAuth();
-  const authUser = null;
+  const authUser = auth.currentUser;
   const isAdmin = false;
 
   if (!authUser) {
-    return <Navigate to="/auth/sign-in" />;
+    return <Navigate to={ROUTE_PATHS.signIn} />;
   }
 
   let disallowedForCurrentUser = false;
